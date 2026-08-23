@@ -1,7 +1,8 @@
 {
     "name": "lab-attendance",
-    "image": "mcr.microsoft.com/devcontainers/python:3.12",
-    "workspaceFolder": "/workspace",
+    "dockerComposeFile": "compose.yaml",
+    "service": "web",
+    "workspaceFolder": "/app",
 
     "features": {
         "ghcr.io/devcontainers/features/node:1": {
