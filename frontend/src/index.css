@@ -1,46 +1,133 @@
-:root {
-  font-family: Inter, system-ui, sans-serif;
-  color: #172033;
-  background: #f3f6fb;
-  font-synthesis: none;
+* {
+    box-sizing: border-box;
 }
-* { box-sizing: border-box; }
-body { margin: 0; min-width: 320px; min-height: 100vh; }
-button, input { font: inherit; }
-button { cursor: pointer }
 
-.app {
-  width: min(680px, calc(100% - 32px));
-  margin: 48px auto;
-  padding: 32px;
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(20, 40, 80, .12)
+body {
+    margin: 0;
+    font-family:
+        "Noto Sans JP",
+        sans-serif;
+
+    background: rgb(238, 237, 237);
+    color: #111
 }
-.eyebrow { margin: 0; color: #2563eb; font-size: 12px; font-weight: 800; }
-h1 { margin: 4px 0 28px; font-size: clamp(32px, 7vw, 54px); }
-.todo-form label { display: block; margin-bottom: 8px; font-weight: 700; }
-.todo-form__row { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
-input { border: 1px solid #cdd6e5; border-radius: 10px; padding: 12px; }
-button { border: 0; border-radius: 10px; padding: 10px 16px; background: #2563eb; color: white; }
 
-.filters { display: flex; gap: 8px; margin: 24px 0 16px; }
-.filters button { background: #e8eef8; color: #40506a; }
-.filters .is-active { background: #172033; color: white; }
-.todo-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
-.todo-item {
-display: flex; align-items: center; justify-content: space-between; gap: 16px;
-padding: 14px; border: 1px solid #e1e7f0; border-radius: 12px;
+.dashboard {
+    min-height: 100vh;
+    padding: 32px 60px;
 }
-.todo-item label { display: flex; align-items: center; gap: 10px; min-width: 0; }
-.todo-item__title--done { color: #8490a3; text-decoration: line-through; }
-button.danger { background: #fff0f0; color: #c03434; }
-button:hover { filter: brightness(.95); }
-button:focus-visible, input:focus-visible { outline: 3px solid #7dd3fc; outline-offset: 2px; }
-footer { margin-top: 18px; color: #667085; }
 
-@media (max-width: 520px) {
-.app { margin: 16px auto; padding: 20px; }
-.todo-form__row { grid-template-columns: 1fr; }
-.filters { flex-wrap: wrap; }
+.dashboard-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 40px;
+}
+
+.dashboard-header h1 {
+    margin: 0;
+
+    font-size: 32px;
+    font-weight: 700;
+}
+
+
+/* 研究室の状況 */
+.lab-status-card {
+    background: white;
+
+    border: 1px solid #dbe2ea;
+
+    border-radius: 24px;
+
+    padding: 24px 40px;
+
+    margin-bottom: 24px;
+
+    min-height: 180px;
+}
+
+.lab-status-card h2 {
+    margin: 0 0 12px;
+
+    font-size: 22px;
+}
+
+.lab-status {
+    margin: 0;
+
+    font-size: 48px;
+    font-weight: bold;
+}
+
+
+/* メンバー一覧 */
+.member-card {
+    background: white;
+
+    border: 1px solid #dbe2ea;
+
+    border-radius: 24px;
+
+    padding: 18px 40px 32px
+}
+
+.member-card h2 {
+    margin-top: 0;
+
+    font-size: 22px;
+}
+
+.member-table {
+    max-width: 760px;
+}
+
+.member-header, .member-row {
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        200px;
+    
+    align-items: center;
+
+    min-height: 58px;
+}
+
+.member-header {
+    font-size: 22px;
+
+    font-weight: bold;
+}
+
+.member-row {
+    font-size: 18px;
+}
+
+
+/* ステータスの色を付ける */
+.status-badge {
+    display: inline-flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 150px;
+    height: 38px;
+
+    border-radius: 8px;
+
+    color: white;
+
+    font-weight: bold;
+}
+
+.status-badge.present {
+    background: #22c55e;
+}
+
+.status-badge.absent {
+    background: #ef4444;
 }
