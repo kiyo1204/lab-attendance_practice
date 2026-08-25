@@ -36,6 +36,8 @@ class PostStudents(BaseModel):
     cardId:int
 
 #打刻
+class PunchUpdate(BaseModel):
+    Status:int | None = None
 class Punch(BaseModel):
     cardId:int
 
@@ -86,5 +88,17 @@ def get_attendances():
     return attendances
 
 #打刻修正
+
+def find_punch(id:int) -> Punch:
+    attendance = attendance.get(id)
+    if attendance is None:
+        raise HTTPException(status_code=404,detail="Task not found")
+    return attendance
+
+@app.patch("/attendances/{id}",response_mosel=Punch)
+def update_punch(id:int,data:PunchUpdate):
+    current = find_punch(id)
+    changes = data.model_dump(exclude_unset=True)
+    
 #打刻削除
 #あとで
